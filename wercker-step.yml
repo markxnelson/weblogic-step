@@ -1,0 +1,10 @@
+name: weblogic-step
+version: 0.0.1
+description: Creates and configures a WebLogic Docker image.
+keywords:
+  - weblogic
+  - docker
+properties:
+  config:
+    type: string
+    required: true
