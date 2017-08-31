@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Hello from the WebLogic Step"
-DOMAIN_HOME=/u01/oracle/user_projects/domain/base-domain && \
+sudo -u oracle DOMAIN_HOME=/u01/oracle/user_projects/domain/base-domain && \
 ADMIN_PASSWORD=welcome1 && \
 ADMIN_USERNAME=weblogic && \
 DOMAIN_NAME=base_domain && \
