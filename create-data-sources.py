@@ -32,6 +32,7 @@ for datasource in data["datasources"]:
     print ('Creating Data Source')
     cd('/')
     create(dsname, 'JDBCSystemResource')
+    cd('/JDBCSystemResources/' + dsname)
     set('Target','AdminServer')
 
     cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
