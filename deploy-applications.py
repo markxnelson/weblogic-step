@@ -28,7 +28,7 @@ for deployment in data["deployments"]:
 
     cd('/')
     app = create(appname, 'AppDeployment')
-    app.setSourcePath(appdir + '/' + apppkg)
+    app.setSourcePath(apppkg)
     app.setStagingMode('nostage')
 
     # Assign application to AdminServer
