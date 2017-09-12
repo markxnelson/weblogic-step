@@ -64,7 +64,7 @@ for datasource in data["datasources"]:
     cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0/Properties/NO_NAME_0')
     create('user', 'Property')
 
-    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0/Properties/NO_NAME_0/Properties/user')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0/Properties/NO_NAME_0/Property/user')
     set('Value', dsusername)
 
 # disconnect
