@@ -10,8 +10,8 @@ if (config_file == None):
     exit()
 
 # read the config file
-with open(config_file) as data_file:
-    data = json.load(data_file)
+data_file = open(config_file, 'r')
+data = json.load(data_file)
 
 # look for the data sources
 if (data["datasources"] == None):
