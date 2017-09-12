@@ -1,4 +1,4 @@
-# create data soruces from the config file
+# create data sources from the config file
 
 import json
 import sys
@@ -61,9 +61,10 @@ for datasource in data["datasources"]:
     print ('Targeting DS to the AdminServer')
 
     cd ('/JDBCSystemResources/'+ dsname)
-    set('Targets',jarray.array([ObjectName('com.bea:Name='+admin_name+',Type='+target_type)], ObjectName))
+    set('Targets',jarray.array([ObjectName('com.bea:Name=AdminServer,Type=Server')], ObjectName))
 
 # disconnect
 
-writeDomain('/u01/oracle/domains/base_domain')
+updateDomain()
+closeDomain()
 exit()
