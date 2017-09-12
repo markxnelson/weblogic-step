@@ -1,5 +1,5 @@
 # create a basic weblogic domain
-selectTemplate('Basic Weblogic Server Domain')
+selectTemplate('Basic WebLogic Server Domain')
 loadTemplates()
 cd('/Security/base_domain/Users/weblogic')
 cmo.setPassword('welcome1')

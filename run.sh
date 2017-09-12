@@ -1,5 +1,5 @@
 #!/bin/sh
-WLST=/u01/oracle/oracle_common/common/bin/wlst.sh
+WLST="/u01/oracle/oracle_common/common/bin/wlst.sh -skipWLSModuleScanning"
 
 echo "Hello from the WebLogic Step"
 echo "Reading the config from :" $WERCKER_WEBLOGIC_STEP_CONFIG
