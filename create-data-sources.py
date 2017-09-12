@@ -58,16 +58,14 @@ for datasource in data["datasources"]:
     cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
     set('TestTableName', 'SQL SELECT 1 FROM DUAL')
 
-    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0')
     create('myProperties','Properties')
 
-    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/Properties/NO_NAME_0')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0/Properties/NO_NAME_0')
     create('user', 'Property')
 
-    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/Properties/NO_NAME_0/Properties/user')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0/Properties/NO_NAME_0/Properties/user')
     set('Value', dsusername)
-
-    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDataSourceParams/' + dsname)
 
 # disconnect
 
