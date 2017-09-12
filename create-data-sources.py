@@ -35,39 +35,39 @@ for datasource in data["datasources"]:
     cd('/JDBCSystemResources/' + dsname)
     set('Target','AdminServer')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
     cmo.setName(dsname)
 
     create('myJdbcDataSourceParams','JDBCDataSourceParams')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDataSourceParams/NO_NAME_0')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDataSourceParams/NO_NAME_0')
     set('JNDIName',[String(dsjndiname)], String)
     set('GlobalTransactionsProtocol', 'TwoPhaseCommit')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
     create('myJdbcDriverParams','JDBCDriverParams')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/NO_NAME_0')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDriverParams/NO_NAME_0')
     set('URL', dsurl)
     set('DriverName', dsdriver)
     set('PasswordEncrypted', dspassword)
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
     create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
     set('TestTableName', 'SQL SELECT 1 FROM DUAL')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
     create('myProperties','Properties')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/Properties/NO_NAME_0')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/Properties/NO_NAME_0')
     create('user', 'Property')
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/Properties/NO_NAME_0/Properties/user')
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/Properties/NO_NAME_0/Properties/user')
     set('Value', dsusername)
 
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDataSourceParams/' + dsname)
+    cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDataSourceParams/' + dsname)
 
 # disconnect
 
