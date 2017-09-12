@@ -41,7 +41,7 @@ for datasource in data["datasources"]:
     create('myJdbcDataSourceParams','JDBCDataSourceParams')
 
     cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname + '/JDBCDataSourceParams/NO_NAME_0')
-    set('JNDIName',[String(dsjndiname)], String)
+    set('JNDIName', dsjndiname)
     set('GlobalTransactionsProtocol', 'TwoPhaseCommit')
 
     cd('/JDBCSystemResources/' + dsname + '/JdbcResource/' + dsname)
