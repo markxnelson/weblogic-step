@@ -31,39 +31,47 @@ for datasource in data["datasources"]:
 
     print ('Creating Data Source')
     cd('/')
-    cmo.createJDBCSystemResource(dsname)
+    create(dsname, 'JDBCSystemResource')
+    set('Target','AdminServer')
 
     cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
     cmo.setName(dsname)
 
+    create('myJdbcDataSourceParams','JDBCDataSourceParams')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDataSourceParams/NO_NAME_0')
+    set('JNDIName',[String(dsjndiname)], String)
+    set('GlobalTransactionsProtocol', 'TwoPhaseCommit')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    create('myJdbcDriverParams','JDBCDriverParams')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/NO_NAME_0')
+    set('URL', dsurl)
+    set('DriverName', dsdriver)
+    set('PasswordEncrypted', dspassword)
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCConnectionPoolParams/NO_NAME_0')
+    set('TestTableName', 'SQL SELECT 1 FROM DUAL')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname)
+    create('myProperties','Properties')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/Properties/NO_NAME_0')
+    create('user', 'Property')
+
+    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/Properties/NO_NAME_0/Properties/user')
+    set('Value', dsusername)
+
     cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDataSourceParams/' + dsname)
-    set('JNDINames',jarray.array([String(dsjndiname)], String))
-
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname)
-    cmo.setUrl(dsurl)
-    cmo.setDriverName(dsdriver)
-    set('Password', dspassword)
-
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCConnectionPoolParams/' + dsname)
-    cmo.setTestTableName('SQL SELECT 1 FROM DUAL\r\n\r\n')
-    cmo.setInitialCapacity(0)
-
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname)
-    cmo.createProperty('user')
-
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDriverParams/' + dsname + '/Properties/' + dsname + '/Properties/user')
-    cmo.setValue(dsusername)
-
-    cd('/JDBCSystemResources/' + dsname + '/JDBCResource/' + dsname + '/JDBCDataSourceParams/' + dsname)
-    cmo.setGlobalTransactionsProtocol('TwoPhaseCommit')
-
-    print ('Targeting DS to the AdminServer')
-
-    cd ('/JDBCSystemResources/'+ dsname)
-    set('Targets',jarray.array([ObjectName('com.bea:Name=AdminServer,Type=Server')], ObjectName))
 
 # disconnect
 
 updateDomain()
 closeDomain()
 exit()
+
+
