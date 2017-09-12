@@ -1,6 +1,5 @@
 # deploy applications from the config file
 
-import json
 import sys
 
 # check a config file was specified
@@ -11,7 +10,7 @@ if (config_file == None):
 
 # read the config file
 data_file = open(config_file, 'r')
-data = json.load(data_file)
+data = eval(data_file.read())
 
 # look for the deployments
 if (data["deployments"] == None):
