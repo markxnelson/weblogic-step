@@ -6,4 +6,4 @@ echo "Reading the config from :" $WERCKER_WEBLOGIC_STEP_CONFIG
 cat $WERCKER_WEBLOGIC_STEP_CONFIG
 
 echo "Checking we can run wlst"
-$WLST $WERCKER_ROOT/test.py
+$WLST $WERCKER_STEP_ROOT/test.py
